@@ -10,6 +10,8 @@ This is a dot net core 3.X template containing:
 4. Dockerized local environment (including build and local MSSQL database)
 5. Terraform for Database creation, Azure Queue creation, and Azure App Service creation
 
+In order to leverage this template simply rename all files, directories, and code from ***dot-net-core-template*** to your app name
+
 ## Running locally
 
 In order to run the application locally, ensure docker and docker-compose are installed on your machine. Then there are simply two commands:
