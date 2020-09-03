@@ -26,9 +26,10 @@ And the app is available by default over port 5000. For example, swagger docs ca
 ### TODOS
 
 1. Create environment specific configuration
-2. Add CI/CD
-3. Add unit tests
-4. Finish queue setup
+2. Determine approach way to manage schema (and deploy this locally)
+3. Add CI/CD
+4. Add unit tests
+5. Finish queue setup
 
 Swagger was configured via the following docs:
 https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-3.1&tabs=netcore-cli
