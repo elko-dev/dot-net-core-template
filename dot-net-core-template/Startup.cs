@@ -1,4 +1,5 @@
 
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -21,7 +22,7 @@ namespace dot_net_core_template
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<TodoContext>(opt =>
-            opt.UseInMemoryDatabase("TodoList"));
+            opt.UseSqlServer(Configuration.GetConnectionString("Database")));
 
             services.AddControllers();
             // Register the Swagger generator, defining 1 or more Swagger documents
@@ -37,7 +38,6 @@ namespace dot_net_core_template
             }
 
             app.UseHttpsRedirection();
-
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 
@@ -47,7 +47,6 @@ namespace dot_net_core_template
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
-
             app.UseRouting();
 
             app.UseAuthorization();

@@ -21,6 +21,7 @@ namespace dot_net_core_template
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    webBuilder.UseUrls("http://*:5000");
                 });
     }
 }
