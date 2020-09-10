@@ -9,4 +9,4 @@ PROJECT_DIR="$SCRIPT_DIR/.."
 OUTPUT_DIR="$PROJECT_DIR/output"
 TF_DIR="$PROJECT_DIR/tf"
 
-terraform plan "$TF_DIR/$EXTENSION_DIR/" 
+terraform plan -var-file="${TF_DIR}/middleware/terraform.tfvars" "$TF_DIR/$EXTENSION_DIR/"

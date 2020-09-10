@@ -1,14 +1,14 @@
-init_appservice:
-	scripts/init.sh appservice
+init:
+	scripts/init.sh middleware
 
-plan_appservice:
-	scripts/plan.sh appservice
+plan:
+	scripts/plan.sh middleware
 
-deploy_appservice:
-	scripts/deploy.sh appservice $(ENVIRONMENT)
+deploy:
+	scripts/deploy.sh middleware $(ENVIRONMENT)
 	
-destroy_appservice:
-	scripts/destroy.sh appservice
+destroy:
+	scripts/destroy.sh middleware
 	
 
 # init_database:

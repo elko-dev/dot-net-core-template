@@ -1,14 +1,3 @@
-provider "azurerm" {
-  features {}
-}
-
-# terraform {
-#   backend "azurerm" {
-#     // The backend configuration is created automatically during deployment.
-#   }
-# }
-
-
 resource "azurerm_resource_group" "main" {
   name     = "${var.environment}-middleware-resources"
   location = var.location
