@@ -1,0 +1,15 @@
+{
+    "cSpell.ignoreWords": [
+        "coc",
+        "css",
+        "eslint",
+        "extensions",
+        "g",
+        "global",
+        "html",
+        "json",
+        "let",
+        "let g coc global extensions eslint json html css omnisharp",
+        "omnisharp"
+    ]
+}

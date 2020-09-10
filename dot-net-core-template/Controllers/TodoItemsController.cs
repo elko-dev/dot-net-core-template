@@ -1,43 +1,65 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using dot_net_core_template;
 
-namespace dot_net_core_template.Controllers
-{
+namespace dot_net_core_template.Controllers {
+
     [Route("api/[controller]")]
     [ApiController]
-    public class TodoItemsController : ControllerBase
-    {
+    public class TodoItemsController : ControllerBase {
         private readonly TodoContext _context;
 
-        public TodoItemsController(TodoContext context)
-        {
+        public TodoItemsController(TodoContext context) {
             _context = context;
+        }
+
+        [System.Serializable]
+        public class MyException : System.Exception {
+            /// <summary>
+            /// Initializes a new instance of the <see cref="T:MyException"/> class
+            /// </summary>
+            public MyException() {
+            }
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="T:MyException"/> class
+            /// </summary>
+            /// <param name="message">A <see cref="T:System.String"/> that describes the exception. </param>
+            public MyException(string message) : base(message) {
+            }
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="T:MyException"/> class
+            /// </summary>
+            /// <param name="message">A <see cref="T:System.String"/> that describes the exception. </param>
+            /// <param name="inner">The exception that is the cause of the current exception. </param>
+            public MyException(string message, System.Exception inner) : base(message, inner) {
+            }
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="T:MyException"/> class
+            /// </summary>
+            /// <param name="context">The contextual information about the source or destination.</param>
+            /// <param name="info">The object that holds the serialized object data.</param>
+            protected MyException(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) : base(info, context) {
+            }
         }
 
         // GET: api/TodoItems
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodoItems()
-        {
+        public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodoItems() {
             return await _context.TodoItems.ToListAsync();
         }
 
         // GET: api/TodoItems/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<TodoItem>> GetTodoItem(long id)
-        {
+        public async Task<ActionResult<TodoItem>> GetTodoItem(long id) {
             var todoItem = await _context.TodoItems.FindAsync(id);
-
-            if (todoItem == null)
-            {
+            if (todoItem == null) {
                 return NotFound();
             }
-
             return todoItem;
         }
 
@@ -45,31 +67,20 @@ namespace dot_net_core_template.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTodoItem(long id, TodoItem todoItem)
-        {
-            if (id != todoItem.Id)
-            {
+        public async Task<IActionResult> PutTodoItem(long id, TodoItem todoItem) {
+            if (id != todoItem.Id) {
                 return BadRequest();
             }
-
             _context.Entry(todoItem).State = EntityState.Modified;
-
-            try
-            {
+            try {
                 await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!TodoItemExists(id))
-                {
+            } catch (DbUpdateConcurrencyException) {
+                if (!TodoItemExists(id)) {
                     return NotFound();
-                }
-                else
-                {
+                } else {
                     throw;
                 }
             }
-
             return NoContent();
         }
 
@@ -77,32 +88,25 @@ namespace dot_net_core_template.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<TodoItem>> PostTodoItem(TodoItem todoItem)
-        {
+        public async Task<ActionResult<TodoItem>> PostTodoItem(TodoItem todoItem) {
             _context.TodoItems.Add(todoItem);
             await _context.SaveChangesAsync();
-
             return CreatedAtAction("GetTodoItem", new { id = todoItem.Id }, todoItem);
         }
 
         // DELETE: api/TodoItems/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<TodoItem>> DeleteTodoItem(long id)
-        {
+        public async Task<ActionResult<TodoItem>> DeleteTodoItem(long id) {
             var todoItem = await _context.TodoItems.FindAsync(id);
-            if (todoItem == null)
-            {
+            if (todoItem == null) {
                 return NotFound();
             }
-
             _context.TodoItems.Remove(todoItem);
             await _context.SaveChangesAsync();
-
             return todoItem;
         }
 
-        private bool TodoItemExists(long id)
-        {
+        private bool TodoItemExists(long id) {
             return _context.TodoItems.Any(e => e.Id == id);
         }
     }

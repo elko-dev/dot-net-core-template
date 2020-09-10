@@ -1,9 +1,8 @@
 using System;
 
-namespace dot_net_core_template
-{
-    public class WeatherForecast
-    {
+namespace dot_net_core_template {
+
+    public class WeatherForecast {
         public DateTime Date { get; set; }
 
         public int TemperatureC { get; set; }
