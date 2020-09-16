@@ -55,7 +55,7 @@ module "application" {
   source = "./application"
 
   environment             = "${var.environment}"
-  location                = "${var.location}"
+  location                = "${var.region}"
   azure-default-location  = "${var.azure-default-location}"
   resource_group_name     = "${var.resource_group_name}"
   resource_group_location = "${var.region}"
