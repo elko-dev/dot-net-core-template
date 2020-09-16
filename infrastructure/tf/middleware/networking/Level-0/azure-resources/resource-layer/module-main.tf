@@ -1,6 +1,6 @@
 # Modules definition for creating Key Vault's resource group
 module "resource_group" {
- source                              = "../../../common-modules/resource-group"
+ source                              = "../../../../common-modules/resource-group"
  resource_group_name                 = "${var.resource_group_name}"
  region                              = "${var.region}"
  tagvalue                            = "${var.tagvalue}"

@@ -20,7 +20,6 @@ variable "resource_group_name" {
   default = "networking"
 }
 
-
 # Variable Declaration for Region/Location
 variable "region" {
   description = "The location/region where resources is created. Changing this forces a new resource to be created."

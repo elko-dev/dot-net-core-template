@@ -1,12 +1,8 @@
-resource "azurerm_resource_group" "main" {
-  name     = "${var.environment}-middleware-resources"
-  location = var.location
-}
 
 resource "azurerm_app_service_plan" "main" {
   name                = "${var.environment}-middleware-asp"
-  location            = azurerm_resource_group.main.location
-  resource_group_name = azurerm_resource_group.main.name
+  location            = "${var.resource_group_location}"
+  resource_group_name = "${var.resource_group_name}"
   kind                = "Linux"
   reserved            = true
 
@@ -18,8 +14,8 @@ resource "azurerm_app_service_plan" "main" {
 
 resource "azurerm_app_service" "main" {
   name                = "${var.environment}-middleware-appservice"
-  location            = azurerm_resource_group.main.location
-  resource_group_name = azurerm_resource_group.main.name
+  location            = azurerm_resource_group.resource_group.location
+  resource_group_name = azurerm_resource_group.resource_group.name
   app_service_plan_id = azurerm_app_service_plan.main.id
 
   site_config {
