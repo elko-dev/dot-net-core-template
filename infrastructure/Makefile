@@ -1,3 +1,5 @@
+default: init plan
+
 init:
 	scripts/init.sh middleware
 

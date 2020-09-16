@@ -9,21 +9,9 @@ provider "azurerm" {
 # }
 
 
-
-module "application" {
-  source = "./application"
-
-  environment             = "${var.environment}"
-  location                = "${var.location}"
-  azure-default-location  = "${var.azure-default-location}"
-  resource_group_name     = "${var.resource_group_name}"
-  resource_group_location = "${var.resource_group_location}"
-
-}
-
-module "database" {
-  source = "./database"
-}
+# module "database" {
+#   source = "./database"
+# }
 
 
 module "Resources" {
@@ -58,5 +46,18 @@ module "Resources" {
   # Parameter Definition for the Tag and Values
   tagvalue    = "${var.tagvalue}"
   environment = "${var.environment}"
+
+}
+
+
+
+module "application" {
+  source = "./application"
+
+  environment             = "${var.environment}"
+  location                = "${var.location}"
+  azure-default-location  = "${var.azure-default-location}"
+  resource_group_name     = "${var.resource_group_name}"
+  resource_group_location = "${var.region}"
 
 }
