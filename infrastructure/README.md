@@ -15,15 +15,15 @@ To retrieve a list of current local subscriptions use:
 Then, init your local directory. For Azure App Service perform the following:
 
 ``` bash
-    $ make init_appservice
-    $ make plan_appservice
-    $ ENVIRONMENT=dev make deploy_appservice
+    $ make init
+    $ make plan
+    $ ENVIRONMENT=dev make apply
 ```
 
 Then, if you need to delete simply run:
 
 ```bash
-    $ make destroy_appservice
+    $ make destroy
 ```
 
 TODO -
