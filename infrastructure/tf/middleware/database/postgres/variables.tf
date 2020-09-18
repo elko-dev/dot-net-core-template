@@ -20,3 +20,11 @@ variable "database_name" {
 variable "database_server_name" {
   description = "Name of database"
 }
+
+variable "database_admin_user" {
+  description = "Database admin user"
+}
+
+variable "database_admin_password" {
+  description = "Database admin password"
+}

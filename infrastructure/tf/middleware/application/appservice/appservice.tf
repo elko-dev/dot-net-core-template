@@ -27,6 +27,6 @@ resource "azurerm_app_service" "main" {
   connection_string {
     name  = "Database"
     type  = "PostgreSQL"
-    value = "Server=${var.database_server_name}.postgres.database.azure.com;Database=middleware;Port=5432;User Id=psqladminun@${var.database_server_name};Password=H@Sh1CoR3!;Ssl Mode=Require;"
+    value = "Server=${var.database_server_name}.postgres.database.azure.com;Database=middleware;Port=5432;User Id=${var.database_admin_user}@${var.database_server_name};Password=${var.database_admin_password};Ssl Mode=Require;"
   }
 }

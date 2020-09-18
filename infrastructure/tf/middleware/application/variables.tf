@@ -24,6 +24,13 @@ variable "database_server_name" {
   description = "Name of database server"
 }
 
+variable "database_admin_user" {
+  description = "Database admin user"
+}
+
+variable "database_admin_password" {
+  description = "Database admin password"
+}
 locals {
   common_tags = {
   }

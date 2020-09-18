@@ -181,5 +181,13 @@ variable "tagvalue" {
 
 variable "database_name" {
   description = "Name of database"
-  default = "middleware-db"
+  default     = "middleware-db"
+}
+
+variable "database_admin_user" {
+  description = "Database admin user"
+}
+
+variable "database_admin_password" {
+  description = "Database admin password"
 }

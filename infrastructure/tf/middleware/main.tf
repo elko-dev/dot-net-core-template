@@ -61,6 +61,8 @@ module "application" {
   resource_group_location = "${var.region}"
   database_name           = "${var.database_name}"
   database_server_name    = "middleware-server-${var.environment}"
+  database_admin_user     = "${var.database_admin_user}"
+  database_admin_password = "${var.database_admin_password}"
 
 
 }
@@ -74,6 +76,8 @@ module "database" {
   resource_group_location = "${var.region}"
   database_name           = "${var.database_name}"
   database_server_name    = "middleware-server-${var.environment}"
+  database_admin_user     = "${var.database_admin_user}"
+  database_admin_password = "${var.database_admin_password}"
 
 }
 
