@@ -28,5 +28,5 @@ Then, if you need to delete simply run:
 
 TODO -
 
-1. remove password
+1. ~~remove password~~
 2. follow up on pricing
