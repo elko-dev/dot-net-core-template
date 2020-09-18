@@ -25,3 +25,8 @@ Then, if you need to delete simply run:
 ```bash
     $ make destroy_appservice
 ```
+
+TODO -
+
+1. remove password
+2. follow up on pricing

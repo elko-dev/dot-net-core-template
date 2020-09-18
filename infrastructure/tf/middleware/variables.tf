@@ -2,9 +2,6 @@ variable "environment" {
   description = "The environment used for all resources"
 }
 
-variable "azure-default-location" {
-  default = "West Europe"
-}
 
 locals {
   common_tags = {
@@ -176,9 +173,13 @@ variable "service_endpoints_enable" {
 }
 
 
-
 #Variable Declaration for Tag Value
 variable "tagvalue" {
   description = "The value for the tag"
   type        = "map"
+}
+
+variable "database_name" {
+  description = "Name of database"
+  default = "middleware-db"
 }
